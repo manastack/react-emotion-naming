@@ -1,4 +1,6 @@
 import { Global } from '@emotion/react'
+// @ts-ignore
+import { withEmotionNamingProvider } from '@manauser/react-emotion-naming'
 
 import { FC } from 'react'
 
@@ -13,4 +15,9 @@ const App: FC = () => (
   </>
 )
 
-export default App
+export default withEmotionNamingProvider.apply(
+  {
+    debugEnabled: import.meta.env.MODE !== 'production',
+  },
+  [App],
+)

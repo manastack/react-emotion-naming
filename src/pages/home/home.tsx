@@ -1,7 +1,22 @@
+import {
+  PropsWithEmotionNaming,
+  withEmotionNaming,
+  // @ts-ignore
+} from '@manauser/react-emotion-naming'
+
 import { FC } from 'react'
+
+import { Smt } from '@widgets/smt'
 
 import StyledHome from './home.style'
 
-const Home: FC = () => <StyledHome>home</StyledHome>
+type Props = {}
+const Home: FC<PropsWithEmotionNaming<Props>> = ({
+  setClassName,
+}: PropsWithEmotionNaming<Props>) => (
+  <StyledHome className={setClassName('Home')}>
+    <Smt /> home
+  </StyledHome>
+)
 
-export default Home
+export default withEmotionNaming(Home)

@@ -3,24 +3,24 @@ import { EmotionNamingProvider } from '@manauser/react-emotion-naming'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, test } from 'vitest'
 
-import { Home } from '.'
+import { Smt } from '.'
 
-describe('<Home />', () => {
-  test('Home: mounts properly', () => {
+describe('<Smt />', () => {
+  test('Smt: mounts properly', () => {
     const wrapper = render(
       <EmotionNamingProvider
         debugEnabled
         template={(p: string) => `__${p.toUpperCase()}__`}
       >
-        <Home />
+        <Smt />
       </EmotionNamingProvider>,
     )
 
     expect(wrapper).toBeTruthy()
 
-    const linkElement = screen.getByText(/home/i)
+    const linkElement = screen.getByText(/smt/i)
     expect(linkElement).toBeInTheDocument()
     expect(linkElement).toBeTruthy()
-    expect(linkElement.className || '').toContain('__HOME__')
+    expect(linkElement.className || '').toContain('__SMT__')
   })
 })

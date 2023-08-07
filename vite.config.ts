@@ -33,10 +33,10 @@ export default defineConfig(() => ({
     alias: {
       '@app': '/src/app',
       '@entities': '/src/entities',
+      '@manauser/react-emotion-naming': '/src/shared/lib/emotion-naming',
       '@pages': '/src/pages',
       '@shared': '/src/shared',
       '@widgets': '/src/widgets',
-      'react-emotion-naming': '/src/shared/lib/emotion-naming',
     },
   },
   test: {
