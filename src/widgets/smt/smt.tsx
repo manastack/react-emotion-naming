@@ -1,4 +1,3 @@
-// @ts-ignore
 import { useEmotionNaming } from '@manauser/react-emotion-naming'
 
 import { FC } from 'react'

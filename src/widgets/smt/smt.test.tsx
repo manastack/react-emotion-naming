@@ -1,4 +1,3 @@
-// @ts-ignore
 import { EmotionNamingProvider } from '@manauser/react-emotion-naming'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, test } from 'vitest'

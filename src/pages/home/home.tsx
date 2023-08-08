@@ -1,7 +1,6 @@
 import {
   PropsWithEmotionNaming,
   withEmotionNaming,
-  // @ts-ignore
 } from '@manauser/react-emotion-naming'
 
 import { FC } from 'react'

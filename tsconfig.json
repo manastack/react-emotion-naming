@@ -20,7 +20,7 @@
       "@pages/*": ["./src/pages/*"],
       "@shared/*": ["./src/shared/*"],
       "@widgets/*": ["./src/widgets/*"],
-      "react-emotion-naming": ["./src/shared/lib/emotion-naming"]
+      "@manauser/react-emotion-naming": ["./src/shared/lib/emotion-naming"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

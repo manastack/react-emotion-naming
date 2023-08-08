@@ -1,5 +1,4 @@
 import { Global } from '@emotion/react'
-// @ts-ignore
 import { withEmotionNamingProvider } from '@manauser/react-emotion-naming'
 
 import { FC } from 'react'
