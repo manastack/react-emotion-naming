@@ -45,14 +45,15 @@ pnpm i @manauser/react-emotion-naming
 
 ## Usage
 
-**app.tsx** (with provider as a wrapper):
+**app.tsx** (variant 1 - with provider as a wrapper):
 
 ```typescript jsx
+// app.tsx
 import { FC } from 'react'
 import { EmotionNamingProvider } from '@manauser/react-emotion-naming'
 
-import Home from '@pages/home'
-import Smt from '@widgets/smt'
+import Home from './home'
+import Smt from './smt'
 
 const App: FC = () => (
   <EmotionNamingProvider debugEnabled={import.meta.env.MODE !== 'production'}>
@@ -64,14 +65,15 @@ const App: FC = () => (
 export default App
 ```
 
-or **app.tsx** (with provider as a HOC `withEmotionNamingProvider`):
+or **app.tsx** (variant 2 - with provider as a HOC `withEmotionNamingProvider`):
 
 ```typescript jsx
+// app.tsx
 import { FC } from 'react'
 import { withEmotionNamingProvider } from '@manauser/react-emotion-naming'
 
-import Home from '@pages/home'
-import Smt from '@widgets/smt'
+import Home from './home'
+import Smt from './smt'
 
 const App: FC = () => (
   <>
@@ -86,9 +88,45 @@ export default withEmotionNamingProvider.apply(
 )
 ```
 
+or **app.tsx** (variant 3 - with combine providers via `combine-function`):
+
+```typescript jsx
+// app.tsx
+import { FC } from 'react'
+
+import Home from './home'
+import Smt from './smt'
+import { withProviders } from './providers'
+
+const App: FC = () => (
+  <>
+    <Smt />
+    <Home />
+  </>
+)
+
+export default withProviders(App)
+```
+
+where `withProviders` is a function that wraps the component in all the providers you need.  
+You need to install for this case `compose-function` package.
+
+```typescript jsx
+// providers.ts
+import { withEmotionNamingProvider } from '@manauser/react-emotion-naming'
+import compose from 'compose-function'
+
+export const withProviders = compose(
+  withEmotionNamingProvider.bind({
+    debugEnabled: import.meta.env.MODE !== 'production',
+  }),
+)
+```
+
 **smt.tsx** (as example with a hook `useEmotionNaming`):
 
 ```typescript jsx
+// smt.tsx
 import { FC } from 'react'
 
 import { useEmotionNaming } from '@manauser/react-emotion-naming'
@@ -107,6 +145,7 @@ export default Smt
 **smt.style.ts**:
 
 ```typescript jsx
+// smt.style.ts
 import styled from '@emotion/styled'
 
 const StyledSmt = styled.span`
@@ -119,6 +158,7 @@ export default StyledSmt
 **home.tsx** (as example with a HOC `withEmotionNaming`):
 
 ```typescript jsx
+// home.tsx
 import { FC } from 'react'
 
 import {
@@ -142,6 +182,7 @@ export default withEmotionNaming(Home)
 home.style.ts:
 
 ```typescript jsx
+// home.style.ts
 import styled from '@emotion/styled'
 
 const StyledHome = styled.div`

@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "React emotion naming. This package enhances the attached CSS class name on any component with richer output to help identify your components in the DOM by debug.",
   "author": "manauser",
   "license": "MIT",
